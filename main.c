@@ -27,6 +27,7 @@ char* expected_mysteryExplode(const char* str){
     int size_of_explode_str = len_of_str*(len_of_str+1)/2+1;
 
     char* explode_str = (char*)malloc(sizeof(char)*size_of_explode_str);
+    memset(explode_str,'\0',size_of_explode_str);
     for(int index=0; index < len_of_str && explode_str != NULL; index++){
         strncat(explode_str, str, index+1);
     }
@@ -55,7 +56,7 @@ int main(int argc, char** argv)
         if (strcmp(actual,expected) == 0){
             grade += 10;
         } else {
-            printf("Assertion Error!\nExpected: %s(%ld)\nActual: %s(%ld)",expected,strlen(expected),actual,strlen(actual));
+            printf("Read: Assertion Error!\nExpected: %s(%ld)\nActual: %s(%ld)",expected,strlen(expected),actual,strlen(actual));
         }
         if (expected != NULL){
             actual_explodedString = mysteryExplode(expected);
@@ -64,7 +65,7 @@ int main(int argc, char** argv)
         if (strcmp(actual_explodedString,expected_explodedString) == 0){
             grade += 15;
         } else {
-            printf("Assertion Error!\nExpected: %s(%ld)\nActual: %s(%ld)",expected_explodedString,strlen(expected_explodedString),actual_explodedString,strlen(actual_explodedString));
+            printf("Explode: Assertion Error!\nExpected: %s(%ld)\nActual: %s(%ld)",expected_explodedString,strlen(expected_explodedString),actual_explodedString,strlen(actual_explodedString));
         }
         free(actual);
         free(expected);

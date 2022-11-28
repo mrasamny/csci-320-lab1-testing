@@ -48,6 +48,7 @@ char* mysteryExplode(const char* str){
     int size_of_explode_str = len_of_str*(len_of_str+1)/2+1;
 
     char* explode_str = (char*)malloc(sizeof(char)*size_of_explode_str);
+    memset(explode_str,'\0',size_of_explode_str);
     for(int index=0; index < len_of_str && explode_str != NULL; index++){
         strncat(explode_str, str, index+1);
     }
