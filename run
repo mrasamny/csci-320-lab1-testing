@@ -1,0 +1,13 @@
+#!/bin/bash
+
+currentDir=`pwd`
+dir=$1
+
+cd ${dir}
+cp ../main.c .
+cp ../makefile .
+cp ../test*.txt .
+
+make
+./explode
+cd ${currentDir}
