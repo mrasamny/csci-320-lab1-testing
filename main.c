@@ -12,7 +12,9 @@ char* expected_readString(char* fileName){
         fp = fopen(fileName,"r");
         if (fp != NULL){
             fgets(line_read,MAX_LINE_LEN,fp);
-            line_read[strlen(line_read)-1] = '\0';
+            if (line_read[strlen(line_read)-1] == '\n'){
+              line_read[strlen(line_read)-1] = '\0';
+            }
             fclose(fp);
         } else {
             free(line_read);
